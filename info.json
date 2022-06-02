@@ -1,0 +1,8 @@
+{
+    "author" : ["Deihim007"],
+    "install_msg" : "Thanks for installation, If you've encountered any issues or bugs please visit: <https://github.com/Deihim007/redbot-cogs> and submit an issue.",
+    "name" : "deihim-cogs",
+    "short" : "Deihim's Cogs.",
+    "description" : "Useful cogs for your butt *ughh*, I mean bot.",
+    "tags" : ["Fun", "Utility"]
+}
