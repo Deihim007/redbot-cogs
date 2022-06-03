@@ -1,0 +1,15 @@
+{
+    "author": [
+        "Deihim007"
+    ],
+    "description": "Sets fancy nickname for members on joining the guild and provides commands to reset their nickname in case of change.",
+    "disabled": false,
+    "hidden": false,
+    "install_msg": "You can use [p]fancyset font <font_id> from the list of font [p]fontset list.",
+    "name": "FancyNicks",
+    "required_cogs": {},
+    "requirements": [],
+    "short": "Sets fancy nickname for members.",
+    "tags": [],
+    "type": "COG"
+}
