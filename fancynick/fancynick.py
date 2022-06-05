@@ -42,7 +42,7 @@ class FancyNick(commands.Cog):
         for i in name:
             if i in self.letters:
                 nick += self.fonts[font][self.letters.index(i)]
-            else
+            else:
                 nick += i
 
         # check prefix
