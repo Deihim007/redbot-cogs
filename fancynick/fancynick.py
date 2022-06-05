@@ -75,7 +75,7 @@ class FancyNick(commands.Cog):
         await ctx.tick()
 
     @fancynick.command()
-    async def set(self, ctx, *, member: discord.Member, nick: str):
+    async def set(self, ctx, member: discord.Member, nick: str):
         """Set user nick"""
         if member is None:
             member = ctx.author
