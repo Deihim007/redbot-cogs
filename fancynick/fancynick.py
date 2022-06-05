@@ -23,9 +23,12 @@ class FancyNick(commands.Cog):
             "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻0123456789",
         ]
 
-    async def makefancy(self, member):
+    async def makefancy(self, member, nick):
         # strip anything but letters and numbers from name
-        name = re.sub(r'[^A-Za-z0-9]+', '', member.name)
+        if nick:
+            name = nick
+        else:
+            name = re.sub(r'[^A-Za-z0-9]+', '', member.name)
         
         # check if name is empty
         if not name:
@@ -85,9 +88,8 @@ class FancyNick(commands.Cog):
         # check for role hierarchy and bot role
         if ctx.me.top_role.position < member.top_role.position:
             return await ctx.send("I can't change nicknames of people with higher roles than me.")
-        member.name = nick
         # set nick
-        await self.makefancy(member)
+        await self.makefancy(member, nick)
         await ctx.tick()
 
     @checks.admin_or_permissions(manage_roles=True)
