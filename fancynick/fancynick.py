@@ -74,6 +74,22 @@ class FancyNick(commands.Cog):
         await self.makefancy(member)
         await ctx.tick()
 
+    @fancynick.command()
+    async def set(self, ctx, *, member: discord.Member, nick: str):
+        """Set user nick"""
+        if member is None:
+            member = ctx.author
+        # check if bot can change nick
+        if not ctx.me.guild_permissions.manage_nicknames:
+            return await ctx.send("I don't have permission to change nicknames.")
+        # check for role hierarchy and bot role
+        if ctx.me.top_role.position < member.top_role.position:
+            return await ctx.send("I can't change nicknames of people with higher roles than me.")
+        member.name = nick
+        # set nick
+        await self.makefancy(member)
+        await ctx.tick()
+
     @checks.admin_or_permissions(manage_roles=True)
     @commands.group()
     async def fancynickset(self, ctx):
