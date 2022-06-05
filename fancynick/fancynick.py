@@ -94,6 +94,32 @@ class FancyNick(commands.Cog):
         await self.makefancy(member, nick)
         await ctx.tick()
 
+    @fancynick.command()
+    async def generate(self, ctx, *, nick: str):
+        """Generate user nick"""
+        # get font
+        font = await self.config.guild(member.guild).font()
+
+        nick = ""
+        # conversion
+        for i in name:
+            if i in self.letters:
+                nick += self.fonts[font][self.letters.index(i)]
+            else:
+                nick += i
+
+        # check prefix
+        prefix = await self.config.guild(member.guild).prefix()
+        if prefix:
+            nick = prefix + nick
+
+        # check suffix
+        suffix = await self.config.guild(member.guild).suffix()
+        if suffix:
+            nick += suffix
+
+        await ctx.send(nick)
+
     @checks.admin_or_permissions(manage_roles=True)
     @commands.group()
     async def fancynickset(self, ctx):
