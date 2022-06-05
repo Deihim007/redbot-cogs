@@ -42,6 +42,8 @@ class FancyNick(commands.Cog):
         for i in name:
             if i in self.letters:
                 nick += self.fonts[font][self.letters.index(i)]
+            else
+                nick += i
 
         # check prefix
         prefix = await self.config.guild(member.guild).prefix()
