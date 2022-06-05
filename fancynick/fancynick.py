@@ -95,7 +95,7 @@ class FancyNick(commands.Cog):
         await ctx.tick()
 
     @fancynick.command()
-    async def generate(self, ctx, *, nick: str):
+    async def generate(self, ctx, *, name: str):
         """Generate user nick"""
         # get font
         font = await self.config.guild(ctx.guild).font()
