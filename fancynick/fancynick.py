@@ -98,7 +98,7 @@ class FancyNick(commands.Cog):
     async def generate(self, ctx, *, nick: str):
         """Generate user nick"""
         # get font
-        font = await self.config.guild(member.guild).font()
+        font = await self.config.guild(ctx.guild).font()
 
         nick = ""
         # conversion
@@ -109,12 +109,12 @@ class FancyNick(commands.Cog):
                 nick += i
 
         # check prefix
-        prefix = await self.config.guild(member.guild).prefix()
+        prefix = await self.config.guild(ctx.guild).prefix()
         if prefix:
             nick = prefix + nick
 
         # check suffix
-        suffix = await self.config.guild(member.guild).suffix()
+        suffix = await self.config.guild(ctx.guild).suffix()
         if suffix:
             nick += suffix
 
